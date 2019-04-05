@@ -40,30 +40,32 @@ router.get('/', async (req, res) => {
   
   router.get('/:id/projects', async (req, res) => {
     try {
-      const projects = await Projects.findPostMessages(req.params.id);
+      const projects = await Projects.findProjectProjects(req.params.id);
   
       if (projects.length > 0) {
         res.status(200).json(projects);
       } else {
-        res.status(404).json({ message: 'No messages for this post' });
+        res.status(404).json({ message: 'No projects for this project' });
       }
     } catch (error) {
       // log error to database
       console.log(error);
       res.status(500).json({
-        message: 'Error retrieving the messages for this post',
+        message: 'Error retrieving the projects for this project',
       });
     }
   });
   
   
+
+
   router.delete('/:id', async (req, res) => {
     try {
       const count = await Projects.remove(req.params.id);
       if (count > 0) {
-        res.status(200).json({ message: 'The post has been nuked' });
+        res.status(200).json({ message: 'The project has been nuked' });
       } else {
-        res.status(404).json({ message: 'The post could not be found' });
+        res.status(404).json({ message: 'The project could not be found' });
       }
     } catch (error) {
       // log error to database
@@ -74,8 +76,9 @@ router.get('/', async (req, res) => {
     }
   });
   
+
+
   router.put('/:id', async (req, res) => {
-    // const changes = req.body;
     try {
       const project = await Projects.update(req.params.id, req.body);
       if (project) {
@@ -109,20 +112,7 @@ router.get('/', async (req, res) => {
       res.status(500).json({ message: message, error });
     }
   });
-  // router.post('/:id/projects', async (req, res) => {
-  //   // const named postBody = req.body
-  //     const postInfo = { ...req.body, post_id: req.params.id }
-  //     try {
-  //         const post = await Projects.addPost(postInfo)
-  //         res.status(201).json(post)
-  //     } catch(error) {
-  //           // log error to database
-  //         console.log(error)
-  //         res.status(500).json({
-  //             message: 'Errrrroorrrrrrrr'
-  //         })
-  //     }
-  // })
+
         
 
 
