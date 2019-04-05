@@ -58,7 +58,18 @@ router.get('/', async (req, res) => {
     }
   });
   
-  
+  router.get('/:id/projects', async (req, res) => {
+    try {
+      const actions = await Actions.find(req.query);
+      res.status(200).json(actions);
+    } catch (error) {
+      // log error to database
+      console.log(error);
+      res.status(500).json({
+        message: 'Error retrieving the projects',
+      });
+    }
+  });
 
 
   router.delete('/:id', async (req, res) => {

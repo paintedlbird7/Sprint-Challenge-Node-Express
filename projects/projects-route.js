@@ -56,6 +56,19 @@ router.get('/', async (req, res) => {
     }
   });
   
+    
+  router.get('/:id/actions', async (req, res) => {
+    try {
+      const projects = await Projects.find(req.query);
+      res.status(200).json(projects);
+    } catch (error) {
+      // log error to database
+      console.log(error);
+      res.status(500).json({
+        message: 'Error retrieving the projects',
+      });
+    }
+  });
   
 
 
