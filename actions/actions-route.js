@@ -109,7 +109,7 @@ router.get('/', async (req, res) => {
       let message = "There was an error while saving the action to the database";
   
       if (error.errno === 19) {
-        message = "please provide both the name and the description";
+        message = "please provide both the id and the description";
       }
       res.status(500).json({ message: message, error });
     }

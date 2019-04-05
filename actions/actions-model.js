@@ -29,7 +29,7 @@ function insert(action) {
 function update(id, action) {
   return db('actions')
     .where('id', Number(id))
-    .update(project);
+    .update(action);
 }
 
 function remove(id) {

@@ -1,6 +1,3 @@
-// already have a projectsModel.js in the helper
-
-
 const knex = require('knex');
 const knexConfig = require('../knexfile');
 const db = knex(knexConfig.development);
