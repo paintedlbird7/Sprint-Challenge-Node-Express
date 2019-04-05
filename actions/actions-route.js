@@ -115,6 +115,23 @@ router.get('/', async (req, res) => {
     }
   });
 
+  
+
+  //   router.post('/:id/actions', async (req, res) => {
+  //   // const named postBody = req.body
+  //     const actionInfo = { ...req.body, action_id: req.params.id }
+  //     try {
+  //         const action = await Actions.addAction(actionInfo)
+  //         res.status(201).json(action)
+  //     } catch(error) {
+  //           // log error to database
+  //         console.log(error)
+  //         res.status(500).json({
+  //             message: 'Errrrroorrrrrrrr'
+  //         })
+  //     }
+  // })
+
         
 
 
