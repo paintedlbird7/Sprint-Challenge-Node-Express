@@ -23,13 +23,13 @@ function findById(id) {
   return db('projects').where({ id: Number(id) });
 }
 
-function insert(post) {
+function insert(project) {
   return db('projects')
-    .insert(post)
+    .insert(project)
     .then(ids => ({ id: ids[0] }));
 }
 
-function update(id, post) {
+function update(id, project) {
   return db('projects')
     .where('id', Number(id))
     .update(project);
