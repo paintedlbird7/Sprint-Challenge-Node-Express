@@ -77,17 +77,17 @@ router.get('/', async (req, res) => {
   router.put('/:id', async (req, res) => {
     // const changes = req.body;
     try {
-      const post = await Projects.update(req.params.id, req.body);
+      const project = await Projects.update(req.params.id, req.body);
       if (project) {
         res.status(200).json(project);
       } else {
-        res.status(404).json({ message: 'The post could not be found' });
+        res.status(404).json({ message: 'The project could not be found' });
       }
     } catch (error) {
       // log error to database
       console.log(error);
       res.status(500).json({
-        message: 'Error updating the post',
+        message: 'Error updating the project',
       });
     }
   });
@@ -98,13 +98,13 @@ router.get('/', async (req, res) => {
     try {
       const projectData = req.body;
       const projectId = await Projects.insert(projectData);
-      const projects = await Projects.findById(projectId.id);
-      res.status(201).json(post);
+      const project = await Projects.findById(projectId.id);
+      res.status(201).json(project);
     } catch (error) {
       let message = "There was an error while saving the project to the database";
   
       if (error.errno === 19) {
-        message = "please provide both the title and the contents";
+        message = "please provide both the name and the description";
       }
       res.status(500).json({ message: message, error });
     }
