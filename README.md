@@ -26,13 +26,25 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+how to do a use for express when the variable is greyed out
+
+how to add express to dependancies
+
 - [ ] Describe Middleware?
+
+middleware in api is similiar to Reacts middleware, use to put code in bits and talks to eachother
 
 - [ ] Describe a Resource?
 
+Text Files, Html Pages, Images, Videos or Dynamic Business Data are REST resources
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+API can return an api code such as a 200 for OK to show it went successfully
+
 - [ ] How can we partition our application into sub-applications?
+
+by using middleware and by dividing the code to bits
 
 ## Project Setup
 

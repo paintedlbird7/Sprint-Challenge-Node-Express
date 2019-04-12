@@ -1,6 +1,6 @@
 const db = require('../dbConfig.js');
 const mappers = require('./mappers');
-
+//comment 
 module.exports = {
   get: function(id) {
     let query = db('actions');
